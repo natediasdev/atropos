@@ -1,0 +1,72 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500&display=swap');
+
+body {
+    background: #B0bfd1;
+    margin: 0;
+    height: 100vh;
+    display: grid;
+    align-content: center;
+    justify-content: center;
+    font-family: 'Poppins', sans-serif;
+}
+
+.my-atropos {
+    width: 320px;
+    background: white url('img_1.jpg') no-repeat 100% -300px;
+}
+
+h1 {
+    font-size: 2.6em;
+    white-space: nowrap;
+    margin-top: 0;
+    transition: .5s;
+    transform: translateX(-55px);
+}
+
+.atropos-scale, .atropos-rotate, .atropos-inner, .container {
+    overflow: visible;
+    position: relative;
+}
+
+.container {
+    padding: 2em;
+
+    &::before {
+        position: absolute;
+        content: '';
+        width: 100%;
+        height: 100%;
+        border: 1px solid black;
+        margin-left: -4em;
+        margin-right: -4em;
+        transform: translate(-1px, -55px);
+        clip-path: polygon(0 0, 0 0, 0 0, 0 0);
+        transition: clip-path .3s;
+    }
+}
+
+.add-border.container::before {
+    clip-path: polygon(0 0, 100% 0, 100% 80%, 0% 100%)
+}
+
+footer {
+    margin-top: 5em;
+    display: grid;
+    grid-template-columns: repeat(2, auto);
+
+    a {
+        text-decoration: none;
+        background: #dae3ee;
+        font-weight: bold;
+        color: #2b3f56;
+        display: inline-block;
+        text-align: center;
+        padding: .5em 1em;
+        border-radius: .3em;
+    }
+
+    svg {
+        transform: translateY(3px);
+        margin-right: .2em;
+    }
+}

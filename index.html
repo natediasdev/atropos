@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Atropos.js</title>
+
+    <link rel="stylesheet" href="atropos.css">
+    <link rel="stylesheet" href="css/main.css">
+</head>
+
+<body>
+
+    <div class="atropos my-atropos">
+        <!-- scale container (required) -->
+        <div class="atropos-scale">
+            <!-- rotate container (required) -->
+            <div class="atropos-rotate">
+                <!-- inner container (required) -->
+                <div class="atropos-inner">
+                    <!-- put your custom content here -->
+                    <div class="container">
+                        <h1>Fatal Intensity</h1>
+                        <p>Est, praesent fringilla sit lorem ipsum id. Non nulla eget donec neque bibendum. Luctus purus
+                            ullamcorper a commodo ut lectus.</p>
+                        <footer>
+                            <div class="cta">
+
+                                <a href="#" class="share">
+                                    <svg width="18" height="18" viewBox="0 0 18 18" fill="none"
+                                        xmlns="http://www.w3.org/2000/svg">
+                                        <path
+                                            d="M2.25 9C2.25 10.2405 3.2595 11.25 4.5 11.25C5.0955 11.25 5.634 11.0138 6.03675 10.635L10.53 13.203C10.5165 13.3005 10.5 13.398 10.5 13.5C10.5 14.7405 11.5095 15.75 12.75 15.75C13.9905 15.75 15 14.7405 15 13.5C15 12.2595 13.9905 11.25 12.75 11.25C12.1545 11.25 11.616 11.4862 11.2133 11.865L6.72 9.29775C6.7335 9.1995 6.75 9.102 6.75 9C6.75 8.898 6.7335 8.8005 6.72 8.70225L11.2133 6.135C11.616 6.51375 12.1545 6.75 12.75 6.75C13.9905 6.75 15 5.7405 15 4.5C15 3.2595 13.9905 2.25 12.75 2.25C11.5095 2.25 10.5 3.2595 10.5 4.5C10.5 4.602 10.5165 4.6995 10.53 4.79775L6.03675 7.365C5.622 6.97101 5.07205 6.75092 4.5 6.75C3.2595 6.75 2.25 7.7595 2.25 9Z"
+                                            fill="#2B3F56" />
+                                    </svg>
+
+                                    Share
+                                </a>
+                            </div>
+                            <p class="date">October 19, 2021</p>
+                        </footer>
+                    </div> 
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="atropos.min.js"></script>
+    <script>
+
+        let title = document.querySelector('h1');
+        let container = document.querySelector('.container');
+
+        const myAtropos = Atropos({
+            el: '.my-atropos',
+            // rest of parameters
+            activeOffset: 40,
+            rotateXMax: 20,
+            rotateYMax: 20,
+            shadowScale: 1.05,
+            onEnter() {
+                title.style.transform = 'scale(1.1) translateX(-90px)'
+                container.classList.add('add-border')
+            },
+            onLeave() {
+                title.style.transform = 'scale(1) translateX(-55px)'
+                container.classList.remove('add-border')
+            },
+            onRotate(x, y) {
+                console.log('Rotate', x, y);
+            }
+        });
+
+    </script>
+</body>
+
+</html>
